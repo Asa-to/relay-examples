@@ -6,18 +6,8 @@ import type { NewsfeedQuery as NewsfeedQueryType } from "./__generated__/Newsfee
 
 const NewsfeedQuery = graphql`
   query NewsfeedQuery {
-    topStory(category: ALL) {
-      title
-      summary
-      poster {
-        name
-        profilePicture {
-          url
-        }
-      }
-      thumbnail {
-        url
-      }
+    topStory {
+      ...StoryFragment
     }
   }
 `;
