@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2c5c4628759e196a802f394caa3c8c50>>
+ * @generated SignedSource<<98710f104c1b78f85d07280ae22e72dd>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,20 +9,11 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from 'relay-runtime';
+import { FragmentRefs } from "relay-runtime";
 export type NewsfeedQuery$variables = {};
 export type NewsfeedQuery$data = {
   readonly topStory: {
-    readonly poster: {
-      readonly name: string | null;
-      readonly profilePicture: {
-        readonly url: string;
-      } | null;
-    };
-    readonly summary: string | null;
-    readonly thumbnail: {
-      readonly url: string;
-    } | null;
-    readonly title: string;
+    readonly " $fragmentSpreads": FragmentRefs<"StoryFragment">;
   } | null;
 };
 export type NewsfeedQuery = {
@@ -33,34 +24,6 @@ export type NewsfeedQuery = {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "kind": "Literal",
-    "name": "category",
-    "value": "ALL"
-  }
-],
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "title",
-  "storageKey": null
-},
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "summary",
-  "storageKey": null
-},
-v3 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-},
-v4 = [
-  {
     "alias": null,
     "args": null,
     "kind": "ScalarField",
@@ -68,27 +31,7 @@ v4 = [
     "storageKey": null
   }
 ],
-v5 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "Image",
-  "kind": "LinkedField",
-  "name": "profilePicture",
-  "plural": false,
-  "selections": (v4/*: any*/),
-  "storageKey": null
-},
-v6 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "Image",
-  "kind": "LinkedField",
-  "name": "thumbnail",
-  "plural": false,
-  "selections": (v4/*: any*/),
-  "storageKey": null
-},
-v7 = {
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -104,30 +47,19 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v0/*: any*/),
+        "args": null,
         "concreteType": "Story",
         "kind": "LinkedField",
         "name": "topStory",
         "plural": false,
         "selections": [
-          (v1/*: any*/),
-          (v2/*: any*/),
           {
-            "alias": null,
             "args": null,
-            "concreteType": null,
-            "kind": "LinkedField",
-            "name": "poster",
-            "plural": false,
-            "selections": [
-              (v3/*: any*/),
-              (v5/*: any*/)
-            ],
-            "storageKey": null
-          },
-          (v6/*: any*/)
+            "kind": "FragmentSpread",
+            "name": "StoryFragment"
+          }
         ],
-        "storageKey": "topStory(category:\"ALL\")"
+        "storageKey": null
       }
     ],
     "type": "Query",
@@ -141,14 +73,33 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v0/*: any*/),
+        "args": null,
         "concreteType": "Story",
         "kind": "LinkedField",
         "name": "topStory",
         "plural": false,
         "selections": [
-          (v1/*: any*/),
-          (v2/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "title",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "summary",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "createdAt",
+            "storageKey": null
+          },
           {
             "alias": null,
             "args": null,
@@ -164,30 +115,54 @@ return {
                 "name": "__typename",
                 "storageKey": null
               },
-              (v3/*: any*/),
-              (v5/*: any*/),
-              (v7/*: any*/)
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Image",
+                "kind": "LinkedField",
+                "name": "profilePicture",
+                "plural": false,
+                "selections": (v0/*: any*/),
+                "storageKey": null
+              },
+              (v1/*: any*/)
             ],
             "storageKey": null
           },
-          (v6/*: any*/),
-          (v7/*: any*/)
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Image",
+            "kind": "LinkedField",
+            "name": "thumbnail",
+            "plural": false,
+            "selections": (v0/*: any*/),
+            "storageKey": null
+          },
+          (v1/*: any*/)
         ],
-        "storageKey": "topStory(category:\"ALL\")"
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "dd724ca442a22d989e700ea74eed5735",
+    "cacheID": "a59a70bb2e872df5487a4840ed192c87",
     "id": null,
     "metadata": {},
     "name": "NewsfeedQuery",
     "operationKind": "query",
-    "text": "query NewsfeedQuery {\n  topStory(category: ALL) {\n    title\n    summary\n    poster {\n      __typename\n      name\n      profilePicture {\n        url\n      }\n      id\n    }\n    thumbnail {\n      url\n    }\n    id\n  }\n}\n"
+    "text": "query NewsfeedQuery {\n  topStory {\n    ...StoryFragment\n    id\n  }\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n  thumbnail {\n    url\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "e5c2519b51bbc1f09b8cad41d5be1690";
+(node as any).hash = "65c357bf80ef742b634fe4d5946d1b3a";
 
 export default node;
