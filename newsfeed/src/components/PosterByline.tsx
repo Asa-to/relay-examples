@@ -11,7 +11,7 @@ const PosterBylineFragment = graphql`
   fragment PosterBylineFragment on Actor {
     name
     profilePicture {
-      ...ImageFragment
+      ...ImageFragment @arguments(width: 60, height: 60)
     }
   }
 `;

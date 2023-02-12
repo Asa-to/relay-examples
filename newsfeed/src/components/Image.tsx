@@ -11,8 +11,12 @@ type Props = {
 };
 
 const ImageFragment = graphql`
-  fragment ImageFragment on Image {
-    url
+  fragment ImageFragment on Image
+  @argumentDefinitions(
+    width: { type: "Int", defaultValue: 400 }
+    height: { type: "Int", defaultValue: 400 }
+  ) {
+    url(width: $width, height: $height)
     altText
   }
 `;
