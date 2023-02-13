@@ -32,11 +32,18 @@ export default function PosterDetailsHovercardContents({
 
 const PosterDetailsHovercardContentsBodyFragment = graphql`
   fragment PosterDetailsHovercardContentsBodyFragment on Actor {
-    id
     name
     joined
     profilePicture {
       ...ImageFragment
+    }
+    ... on Organization {
+      organizationKind
+    }
+    ... on Person {
+      location {
+        name
+      }
     }
   }
 `;
@@ -58,8 +65,10 @@ function PosterDetailsHovercardContentsBody({
       <div className="posterHovercard__name">{data.name}</div>
       <ul className="posterHovercard__details">
         <li>
-          Joined <Timestamp time={data.joined} />
+          Joined <Timestamp time={data.joined} />{" "}
         </li>
+        {data.location != null && <li>{data.location.name}</li>}
+        {data.organizationKind != null && <li>{data.organizationKind}</li>}
       </ul>
       <div className="posterHovercard__buttons">
         <button>Friend</button>
