@@ -10,6 +10,10 @@ const NewsfeedQuery = graphql`
       id
       ...StoryFragment
     }
+    viewer {
+      ...ViewerProfileFragment
+      ...ContactsListFragment
+    }
   }
 `;
 
