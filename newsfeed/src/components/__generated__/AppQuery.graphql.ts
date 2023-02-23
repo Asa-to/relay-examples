@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ca571a874b8f75143c3022b1e85a9be3>>
+ * @generated SignedSource<<3f35a687a91fd48530b3fff99f850595>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,13 +12,7 @@ import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type AppQuery$variables = {};
 export type AppQuery$data = {
-  readonly topStories: ReadonlyArray<{
-    readonly id: string;
-    readonly " $fragmentSpreads": FragmentRefs<"StoryFragment">;
-  } | null> | null;
-  readonly viewer: {
-    readonly " $fragmentSpreads": FragmentRefs<"ContactsListFragment" | "ViewerProfileFragment">;
-  } | null;
+  readonly " $fragmentSpreads": FragmentRefs<"NewsfeedFragment" | "SidebarFragment">;
 };
 export type AppQuery = {
   response: AppQuery$data;
@@ -87,42 +81,14 @@ return {
     "name": "AppQuery",
     "selections": [
       {
-        "alias": null,
         "args": null,
-        "concreteType": "Story",
-        "kind": "LinkedField",
-        "name": "topStories",
-        "plural": true,
-        "selections": [
-          (v0/*: any*/),
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "StoryFragment"
-          }
-        ],
-        "storageKey": null
+        "kind": "FragmentSpread",
+        "name": "NewsfeedFragment"
       },
       {
-        "alias": null,
         "args": null,
-        "concreteType": "Viewer",
-        "kind": "LinkedField",
-        "name": "viewer",
-        "plural": false,
-        "selections": [
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "ViewerProfileFragment"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "ContactsListFragment"
-          }
-        ],
-        "storageKey": null
+        "kind": "FragmentSpread",
+        "name": "SidebarFragment"
       }
     ],
     "type": "Query",
@@ -293,16 +259,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "ac6846f5f0b1e696df8a1e8f3b399f1e",
+    "cacheID": "fa058b095d90190cbf36c0104aa04367",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery {\n  topStories {\n    id\n    ...StoryFragment\n  }\n  viewer {\n    ...ViewerProfileFragment\n    ...ContactsListFragment\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url(width: 400, height: 400)\n  altText\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400, height: 400)\n  altText\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
+    "text": "query AppQuery {\n  ...NewsfeedFragment\n  ...SidebarFragment\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url(width: 400, height: 400)\n  altText\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400, height: 400)\n  altText\n}\n\nfragment NewsfeedFragment on Query {\n  topStories {\n    id\n    ...StoryFragment\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment SidebarFragment on Query {\n  viewer {\n    ...ViewerProfileFragment\n    ...ContactsListFragment\n  }\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "77672a0d76d664ac11886eb0da77b982";
+(node as any).hash = "f04fdd3c9ba253ae7bad7cff7538e06a";
 
 export default node;

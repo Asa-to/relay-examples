@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ef41d70a0d4a5eac651525d7371e0987>>
+ * @generated SignedSource<<56d35c0f7360501bf4a1f7c35a9a5c4f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,9 +16,6 @@ export type NewsfeedQuery$data = {
     readonly id: string;
     readonly " $fragmentSpreads": FragmentRefs<"StoryFragment">;
   } | null> | null;
-  readonly viewer: {
-    readonly " $fragmentSpreads": FragmentRefs<"ContactsListFragment" | "ViewerProfileFragment">;
-  } | null;
 };
 export type NewsfeedQuery = {
   response: NewsfeedQuery$data;
@@ -37,48 +34,9 @@ v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "__typename",
-  "storageKey": null
-},
-v2 = {
-  "kind": "TypeDiscriminator",
-  "abstractKey": "__isActor"
-},
-v3 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-},
-v4 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
   "name": "altText",
   "storageKey": null
-},
-v5 = [
-  {
-    "alias": null,
-    "args": [
-      {
-        "kind": "Literal",
-        "name": "height",
-        "value": 400
-      },
-      {
-        "kind": "Literal",
-        "name": "width",
-        "value": 400
-      }
-    ],
-    "kind": "ScalarField",
-    "name": "url",
-    "storageKey": "url(height:400,width:400)"
-  },
-  (v4/*: any*/)
-];
+};
 return {
   "fragment": {
     "argumentDefinitions": [],
@@ -99,27 +57,6 @@ return {
             "args": null,
             "kind": "FragmentSpread",
             "name": "StoryFragment"
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "Viewer",
-        "kind": "LinkedField",
-        "name": "viewer",
-        "plural": false,
-        "selections": [
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "ViewerProfileFragment"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "ContactsListFragment"
           }
         ],
         "storageKey": null
@@ -172,10 +109,25 @@ return {
             "name": "poster",
             "plural": false,
             "selections": [
-              (v1/*: any*/),
-              (v2/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "__typename",
+                "storageKey": null
+              },
+              {
+                "kind": "TypeDiscriminator",
+                "abstractKey": "__isActor"
+              },
               (v0/*: any*/),
-              (v3/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null
+              },
               {
                 "alias": null,
                 "args": null,
@@ -202,7 +154,7 @@ return {
                     "name": "url",
                     "storageKey": "url(height:60,width:60)"
                   },
-                  (v4/*: any*/)
+                  (v1/*: any*/)
                 ],
                 "storageKey": null
               }
@@ -216,74 +168,26 @@ return {
             "kind": "LinkedField",
             "name": "thumbnail",
             "plural": false,
-            "selections": (v5/*: any*/),
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "Viewer",
-        "kind": "LinkedField",
-        "name": "viewer",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": null,
-            "kind": "LinkedField",
-            "name": "actor",
-            "plural": false,
             "selections": [
-              (v1/*: any*/),
-              (v3/*: any*/),
               {
                 "alias": null,
-                "args": null,
-                "concreteType": "Image",
-                "kind": "LinkedField",
-                "name": "profilePicture",
-                "plural": false,
-                "selections": [
+                "args": [
                   {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "url",
-                    "storageKey": null
+                    "kind": "Literal",
+                    "name": "height",
+                    "value": 400
+                  },
+                  {
+                    "kind": "Literal",
+                    "name": "width",
+                    "value": 400
                   }
                 ],
-                "storageKey": null
+                "kind": "ScalarField",
+                "name": "url",
+                "storageKey": "url(height:400,width:400)"
               },
-              (v0/*: any*/)
-            ],
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": null,
-            "kind": "LinkedField",
-            "name": "contacts",
-            "plural": true,
-            "selections": [
-              (v1/*: any*/),
-              (v0/*: any*/),
-              (v2/*: any*/),
-              (v3/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Image",
-                "kind": "LinkedField",
-                "name": "profilePicture",
-                "plural": false,
-                "selections": (v5/*: any*/),
-                "storageKey": null
-              }
+              (v1/*: any*/)
             ],
             "storageKey": null
           }
@@ -293,16 +197,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d1d4f7e4cf4b4864c575b53e0452243c",
+    "cacheID": "0490cc4ad0459cad188a7e22829d7b95",
     "id": null,
     "metadata": {},
     "name": "NewsfeedQuery",
     "operationKind": "query",
-    "text": "query NewsfeedQuery {\n  topStories {\n    id\n    ...StoryFragment\n  }\n  viewer {\n    ...ViewerProfileFragment\n    ...ContactsListFragment\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url(width: 400, height: 400)\n  altText\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400, height: 400)\n  altText\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
+    "text": "query NewsfeedQuery {\n  topStories {\n    id\n    ...StoryFragment\n  }\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400, height: 400)\n  altText\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "b18453b539cb8749312e941e032c29d5";
+(node as any).hash = "06e6b6b9d307eae64894bc47ffa26664";
 
 export default node;

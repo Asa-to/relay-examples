@@ -1,13 +1,14 @@
 import * as React from "react";
 import { graphql } from "relay-runtime";
-import { useLazyLoadQuery } from "react-relay";
+import { useFragment, useLazyLoadQuery } from "react-relay";
 import LoadingSpinner from "./LoadingSpinner";
 import type { SidebarQuery as SidebarQueryType } from "./__generated__/SidebarQuery.graphql";
 import ViewerProfile from "./ViewerProfile";
 import ContactsList from "./ContactsList";
+import { SidebarFragment$key } from "./__generated__/SidebarFragment.graphql";
 
-const SidebarQuery = graphql`
-  query SidebarQuery {
+const SidebarFragment = graphql`
+  fragment SidebarFragment on Query {
     viewer {
       ...ViewerProfileFragment
       ...ContactsListFragment
@@ -15,18 +16,26 @@ const SidebarQuery = graphql`
   }
 `;
 
-export default function Sidebar() {
+type Props = {
+  sidebar: SidebarFragment$key;
+};
+
+export default function Sidebar({ sidebar }: Props) {
   return (
     <div className="sidebar">
       <React.Suspense fallback={<LoadingSpinner />}>
-        <SidebarContents />
+        <SidebarContents sidebarContent={sidebar} />
       </React.Suspense>
     </div>
   );
 }
 
-function SidebarContents() {
-  const data = useLazyLoadQuery<SidebarQueryType>(SidebarQuery, {});
+type SidebarContents = {
+  sidebarContent: SidebarFragment$key;
+};
+
+function SidebarContents({ sidebarContent }: SidebarContents) {
+  const data = useFragment(SidebarFragment, sidebarContent);
   return (
     <>
       <ViewerProfile viewer={data.viewer} />
